@@ -78,11 +78,10 @@ contract DirectHomeCrowdsale is DirectHomeCrowdsaleConfig, Ownable, Pausable, Ha
   event WhitelistUpdated(address indexed beneficiary);
   event Finalized();
 
-  function DirectHomeCrowdsale(DirectToken _token) public {
+  function DirectHomeCrowdsale(DirectToken _token, address _multisigVault) public {
     token = _token;
+    multisigVault = _multisigVault;
   }
-
-  //function DirectHomeCrowdsale() public {  }
 
   // fallback function can be used to buy tokens
   function () external whenNotPaused payable {
@@ -247,7 +246,7 @@ contract DirectHomeCrowdsale is DirectHomeCrowdsaleConfig, Ownable, Pausable, Ha
       refundVault.close();
       uint issuedTokenSupply = token.totalSupply();
       uint restrictedTokens = issuedTokenSupply;
-      token.mint(multisigVault, restrictedTokens);
+      token.mint(multisigVault, restrictedTokens);  // mint the other 50% token and store in multisigVault
       token.finishMinting();
       token.transferOwnership(owner);
     } else {
