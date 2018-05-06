@@ -36,7 +36,6 @@ contract DirectHomeCrowdsale is DirectHomeCrowdsaleConfig, Ownable, Pausable, Ha
   // start and end timestamps where investments are allowed (both inclusive)
   uint256 public startTime = CROWDSALE_START_TIME;
   uint256 public endTime = CROWDSALE_END_TIME;
-  uint256 public pausedTime;
 
   // address where funds are collected
   address public multisigVault;
@@ -80,7 +79,7 @@ contract DirectHomeCrowdsale is DirectHomeCrowdsaleConfig, Ownable, Pausable, Ha
 
   function DirectHomeCrowdsale(DirectToken _token, address _multisigVault) public {
     token = _token;
-    multisigVault = _multisigVault;
+    setMultisigVault(_multisigVault);
   }
 
   // fallback function can be used to buy tokens
@@ -179,6 +178,14 @@ contract DirectHomeCrowdsale is DirectHomeCrowdsaleConfig, Ownable, Pausable, Ha
    */
   function setStartTime(uint256 _startTime) public onlyOwner {
     startTime = _startTime;
+  }
+
+  /**
+   * @dev Allows the owner to set the end time.
+   * @param _endTime the new function
+   */
+  function setEndTime(uint256 _endTime) public onlyOwner {
+    endTime = _endTime;
   }
 
   /**
