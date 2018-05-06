@@ -6,8 +6,8 @@ import "./Vesting.sol";
 
 contract DirectToken is MintableToken, HasNoTokens, Vesting {
 
-  string public constant name = "Kiegan Token 3";
-  string public constant symbol = "KG3";
+  string public constant name = "DIREC";
+  string public constant symbol = "DIR";
   uint8 public constant decimals = 18;
 
   bool public tradingStarted = false;   // target is TRADING_START date = 1533081600; // 2018-08-01 00:00:00 UTC
