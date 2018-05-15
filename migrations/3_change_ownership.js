@@ -1,7 +1,7 @@
 const DHToken = artifacts.require('DirectToken');
 const DHTokenSale = artifacts.require('DirectHomeCrowdsale');
 
-const saleContractOwner = '0xD0b5D03c2c9d7B6EbacfdC2fd52db66FB861B909';
+const saleContractOwner = '0x51DEB6be3B2166AB60e40CED2d7bea2f92d923Fd';
 
 const debug = true;
 

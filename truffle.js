@@ -35,6 +35,14 @@ module.exports = {
       gas: 200000,
       gasPrice: 5250000000, // 5.25 gwei, tested ok on 21th march 2018, seems unable to complete if lower
     },
+    mainnet: {
+      provider: function() {
+        return new HDWalletProvider(mnemonic, "https://mainnet.infura.io/A9hbIyzNBNnKnWuKqpeS")
+      },
+      network_id: 1,
+      gas: 200000,
+      gasPrice: 31110000000,
+    },
 
 
   }
